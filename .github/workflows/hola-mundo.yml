@@ -1,0 +1,12 @@
+name: hola-mundo #Nombre del workflow
+on: [push] #evento que lo activará
+jobs: #Definición de los jobs
+  hola-mundo: #Nombre del job
+    runs-on: ubuntu-latest #Maquina en la que correrá
+    steps: #Lista de steps del job hola-mundo
+      - name: App  #Nombre del step
+        id: app #identificador usable dentro del job para otros steps
+        uses: actions/checkout@v3 #Usará el action actions/checkout
+      - name: Run App #Segundo step de nombre Run App
+        id: run-app #identificador usable dentro del job para otros steps
+        run: python3 holamundo.py #bash

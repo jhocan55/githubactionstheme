@@ -30,6 +30,17 @@ on:
   schedule:
     - cron:  '15 22 * * *'
 jobs:
+  hola-mundo-manual:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: Definir nombre
+        run: echo "USERNAME=${{ inputs.nombre }}" >> $GITHUB_ENV
+      - name: Definir lenguaje
+        run: echo "LANGUAGE=${{ inputs.lenguaje_favorito }}" >> $GITHUB_ENV
+      - name: Correr script
+        run: python holalengua.py
   hola-mundo:
     if: ${{ github.event_name != 'workflow_dispatch' }}
     runs-on: ubuntu-latest
